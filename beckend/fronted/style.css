@@ -1,0 +1,37 @@
+.body{
+    align-items: center;
+    justify-content: center;
+}
+.login{
+    align-items: center;
+    justify-content: center;
+  padding: 20px 10px;
+  
+ 
+}
+.login1{
+    align-items: center;
+    justify-content: center;
+  padding: 20px 10px;
+  border: 2px blue;
+}
+.login h2{
+    align-items: center;
+    justify-content: center;
+    color: blue;
+}
+ .login #btn{
+    margin: 25px;
+    cursor: pointer;
+}
+
+#form input{
+     margin: 2px;
+    padding: 2px;
+  margin-bottom: 10px;
+}
+#form #btn{
+    size: 10px;
+   margin: 10px;
+   cursor: pointer;
+}
