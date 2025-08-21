@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Signup Page</h2>
+    
+<form id="form" action="/signup" method="POST">
+    <div>
+        <label>Name</label>
+        <input type="text" name="name" placeholder="enter your name">
+    </div>
+    <div>
+        <label>Email id</label>
+        <input type="email" name="email" placeholder="enter your email">
+    </div>
+    <div>
+        <label>Password</label>
+        <input type="password" name="password" placeholder="enter your password">
+    </div>
+     <div>
+        <label>Mobile number</label>
+        <input type="text" name="mobile" placeholder="enter your mobile number">
+     </div>
+     <div>
+        <label>Gender</label>
+        <div>
+            <label>
+                <input type="radio" name="gender" value="Male">Male
+            </label>
+            <label>
+                <input type="radio" name="gender" value="female">Female
+            </label>
+        </div>
+     </div>
+     <button type="submit" id="btn">Signup</button>
+</form>
+
+
+</body>
+</html>
