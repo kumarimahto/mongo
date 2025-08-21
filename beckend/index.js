@@ -100,8 +100,8 @@ const PORT = process.env.PORT || 5009;
 // Body parser
 app.use(express.urlencoded({ extended: true }));
 
-// Corrected: Point to the root directory where the files are
-app.use(express.static(path.join(__dirname)));
+// Corrected: 'frontend' folder name
+app.use(express.static(path.join(__dirname, 'frontend')));
 
 // Corrected: Only one mongoose.connect() call, using the environment variable
 mongoose.connect(process.env.MONGO_URI)
@@ -119,14 +119,14 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema);
 
 // Routes
-// Corrected: Point directly to index.html in the root
+// Corrected: 'frontend' folder name
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
 });
 
-// Corrected: Point directly to login.html in the root
+// Corrected: 'frontend' folder name
 app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, 'login.html'));
+    res.sendFile(path.join(__dirname, 'frontend', 'login.html'));
 });
 
 // Signup route
