@@ -95,16 +95,16 @@ const mongoose = require('mongoose');
 const path = require('path');
 
 const app = express();
-const PORT = 5009;
+const PORT = process.env.PORT || 5009; 
 
 // Body parser
 app.use(express.urlencoded({ extended: true }));
 
-// Static folder
-app.use(express.static(path.join(__dirname, 'fronted')));
+// Corrected: 'frontend' folder name
+app.use(express.static(path.join(__dirname, 'frontend')));
 
-// MongoDB connect
-mongoose.connect('mongodb+srv://kkumari24:8d8td6LdD@cluster0.vbl1nkl.mongodb.net/signupDB?retryWrites=true&w=majority')
+// Corrected: Only one mongoose.connect() call, using the environment variable
+mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log("MongoDB Atlas connected!"))
 .catch(err => console.log("Error connecting to MongoDB:", err));
 
@@ -119,12 +119,14 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema);
 
 // Routes
+// Corrected: 'frontend' folder name
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'fronted', 'index.html'));
+    res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
 });
 
+// Corrected: 'frontend' folder name
 app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, 'fronted', 'login.html'));
+    res.sendFile(path.join(__dirname, 'frontend', 'login.html'));
 });
 
 // Signup route
