@@ -100,10 +100,10 @@ const PORT = process.env.PORT || 5009;
 // Body parser
 app.use(express.urlencoded({ extended: true }));
 
-// Point to the root directory where the files are
+// This line now serves files directly from the root directory
 app.use(express.static(path.join(__dirname)));
 
-// Corrected: Only one mongoose.connect() call, using the environment variable
+// Only one mongoose.connect() call, using the environment variable
 mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log("MongoDB Atlas connected!"))
 .catch(err => console.log("Error connecting to MongoDB:", err));
@@ -119,12 +119,12 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema);
 
 // Routes
-// Point directly to index.html in the root
+// This line now looks for index.html directly in the root directory
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Point directly to login.html in the root
+// This line now looks for login.html directly in the root directory
 app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, 'login.html'));
 });
